@@ -2,6 +2,14 @@
 @section('title', 'Announcements')
 
 @section('content')
+@unless(request()->hasAny(['search', 'category', 'priority']))
+<div class="p-5 mb-4 rounded text-white text-center"
+     style="background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('{{ asset('image/banner.jpg') }}') center/cover, #0d6efd;">
+    <h1 class="display-6 fw-bold">Stay informed. Stay connected.</h1>
+    <p class="lead mb-0">Latest news, events and notices for the Indera Mahkota community.</p>
+</div>
+@endunless
+
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="mb-0">Announcements</h2>
     @if(session('user_role') === 'admin')
